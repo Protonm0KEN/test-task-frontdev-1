@@ -1,0 +1,23 @@
+.Modal_layout_active{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 999;
+    background-color: rgba(0,0,0, 0.5);
+    height: 100vh;
+}
+.Modal_layout{
+    display: none;
+}
+.Modal_window{
+    position: inherit;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    border-radius: 50px;
+    width: 500px;
+    padding: 50px;
+}

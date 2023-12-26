@@ -1,0 +1,54 @@
+.ProductCard{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    max-height: min-content;
+    border-radius: 30px;
+    border: 3px solid black;
+    padding: 10px;
+}
+.Image{
+    max-width: 200px;
+}
+.Button{
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(41, 40, 40);
+    color: white;
+}
+.layout{
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+.Cart{
+    position: fixed;
+    top: 0;
+    right: 0;
+    border-radius: 15px;
+    border: 1px solid black;
+    min-height: 30px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.input{
+    position: fixed;
+    top: 0;
+    right: 50%;
+    width: 200px;
+    max-height: 50px;
+    height: 100%;
+}
+.ProductCards{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
