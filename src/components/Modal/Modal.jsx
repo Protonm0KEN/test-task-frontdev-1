@@ -20,8 +20,11 @@ const Modal = ({ product, state, setState, modalFunc, arr }) => {
         <div className="Modal_buttons">
           <button
             onClick={() => {
-              modalFunc([...arr, product.title]);
-              return setState(!state);
+              if (arr.includes(product.title)) {
+              }else{
+                modalFunc([...arr, product.title]);
+                return setState(!state);
+              }
             }}
           >
             Add To cart
