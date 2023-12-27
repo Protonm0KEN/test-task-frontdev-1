@@ -24,7 +24,6 @@ const App = () => {
     product.title.toLowerCase().includes(searchValue.toLowerCase())
   ) : arr
   useEffect(() => {
-    const inputElement = document.getElementsByClassName("input");
     LoaderState();
   }, []);
   const openModalFunction = (product) => {
@@ -65,6 +64,7 @@ const App = () => {
         className="input"
         onChange={(e) => setSearchValue(e.target.value)}
         value={searchValue}
+        autoFocus
       />
       <div className="Cart">
         Корзина:
