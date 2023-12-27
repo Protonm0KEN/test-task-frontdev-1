@@ -4,8 +4,8 @@ import "./styles/App/App.css";
 import Modal from "./components/Modal/Modal";
 const App = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [currentProduct, setCurrentProduct] = useState()
-  const [isModalActive, setIsModalActive] = useState(false)
+  const [currentProduct, setCurrentProduct] = useState();
+  const [isModalActive, setIsModalActive] = useState(false);
   const [ArrayOfTitles, setArrayOfTitles] = useState([]);
   const [arr, setArr] = useState();
   const [isLoaderStateActive, setIsLoaderStateActive] = useState(false);
@@ -20,21 +20,22 @@ const App = () => {
     const data = await axios.get(link);
     setArr(data.data.products);
   };
+  const filteredArray = searchValue ? arr.filter((product) => 
+    product.title.toLowerCase().includes(searchValue.toLowerCase())
+  ) : arr
   useEffect(() => {
     const inputElement = document.getElementsByClassName("input");
-    console.log(inputElement);
     LoaderState();
   }, []);
   const openModalFunction = (product) => {
-    setIsModalActive(!isModalActive)
-    setCurrentProduct(product)
-  }
-  console.log(ArrayOfTitles);
+    setIsModalActive(!isModalActive);
+    setCurrentProduct(product);
+  };
   return (
     <div className="layout">
       <div className="ProductCards">
         {arr ? (
-          arr.map((product) => {
+          filteredArray.map((product) => {
             return (
               <>
                 <div key={product.id} className="ProductCard">
@@ -47,7 +48,7 @@ const App = () => {
                     alt="product-img"
                   />
                   <button
-                    onClick={() => openModalFunction(product) }
+                    onClick={() => openModalFunction(product)}
                     className="Button"
                   >
                     Add
@@ -71,7 +72,13 @@ const App = () => {
           return <p>{prodAdded}</p>;
         })}
       </div>
-      <Modal product={currentProduct} arr = {ArrayOfTitles} modalFunc = {setArrayOfTitles} state = {isModalActive} setState = {setIsModalActive} />
+      <Modal
+        product={currentProduct}
+        arr={ArrayOfTitles}
+        modalFunc={setArrayOfTitles}
+        state={isModalActive}
+        setState={setIsModalActive}
+      />
     </div>
   );
 };
